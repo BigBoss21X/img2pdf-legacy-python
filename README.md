@@ -9,4 +9,4 @@ versions of Python.
 
 No pull requests will be accepted, other than:
 - Compatibility fixes with Python 2.
-- Merges from the upstream img2pdf2 library.
+- Merges from the upstream img2pdf library.
