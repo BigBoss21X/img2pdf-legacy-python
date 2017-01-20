@@ -3,11 +3,11 @@ from setuptools import setup
 VERSION = "0.2.3"
 
 setup(
-    name='img2pdf',
+    name='img2pdf-legacy-python',
     version=VERSION,
-    author="Johannes 'josch' Schauer",
-    author_email='josch@mister-muffin.de',
-    description="Convert images to PDF via direct JPEG inclusion.",
+    author="Lucas Wiman (fork); Johannes 'josch' Schauer (original author)",
+    author_email='lucas.wiman@gmail.com',
+    description="Python 2-compatible fork of img2pdf",
     long_description=open('README.md').read(),
     license="LGPL",
     keywords="jpeg pdf converter",
@@ -17,16 +17,14 @@ setup(
         'Intended Audience :: Other Audience',
         'Environment :: Console',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: Implementation :: CPython',
         'License :: OSI Approved :: GNU Lesser General Public License v3 '
         '(LGPLv3)',
         'Natural Language :: English',
         'Operating System :: OS Independent'],
-    url='https://gitlab.mister-muffin.de/josch/img2pdf',
-    download_url='https://gitlab.mister-muffin.de/josch/img2pdf/repository/'
-        'archive.tar.gz?ref=' + VERSION,
+    url='https://github.com/lucaswiman/img2pdf-legacy-python',
     package_dir={"": "src"},
     py_modules=['img2pdf', 'jp2'],
     include_package_data=True,
