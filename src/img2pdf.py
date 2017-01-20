@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python2
 
 # Copyright (C) 2012-2014 Johannes 'josch' Schauer <j.schauer at email.de>
 #
@@ -977,14 +978,28 @@ def get_fixed_dpi_layout_fun(fixed_dpi):
 # Input images can be given as file like objects (they must implement read()),
 # as a binary string representing the image content or as filenames to the
 # images.
-def convert(*images, title=None,
-            author=None, creator=None, producer=None, creationdate=None,
-            moddate=None, subject=None, keywords=None, colorspace=None,
-            nodate=False, layout_fun=default_layout_fun, viewer_panes=None,
-            viewer_initial_page=None, viewer_magnification=None,
-            viewer_page_layout=None, viewer_fit_window=False,
-            viewer_center_window=False, viewer_fullscreen=False,
-            with_pdfrw=True, outputstream=None, first_frame_only=False):
+def convert(*images, **kwargs):
+    title = kwargs.get('title', None)
+    author = kwargs.get('author', None)
+    creator = kwargs.get('creator', None)
+    producer = kwargs.get('producer', None)
+    creationdate = kwargs.get('creationdate', None)
+    moddate = kwargs.get('moddate', None)
+    subject = kwargs.get('subject', None)
+    keywords = kwargs.get('keywords', None)
+    colorspace = kwargs.get('colorspace', None)
+    nodate = kwargs.get('nodate', False)
+    layout_fun = kwargs.get('layout_fun', default_layout_fun)
+    viewer_panes = kwargs.get('viewer_panes', None)
+    viewer_initial_page = kwargs.get('viewer_initial_page', None)
+    viewer_magnification = kwargs.get('viewer_magnification', None)
+    viewer_page_layout = kwargs.get('viewer_page_layout', None)
+    viewer_fit_window = kwargs.get('viewer_fit_window', False)
+    viewer_center_window = kwargs.get('viewer_center_window', False)
+    viewer_fullscreen = kwargs.get('viewer_fullscreen', False)
+    with_pdfrw = kwargs.get('with_pdfrw', True)
+    outputstream = kwargs.get('outputstream', None)
+    first_frame_only = kwargs.get('first_frame_only', False)
 
     pdf = pdfdoc("1.3", title, author, creator, producer, creationdate,
                  moddate, subject, keywords, nodate, viewer_panes,
@@ -1465,7 +1480,7 @@ Report bugs at https://gitlab.mister-muffin.de/josch/img2pdf/issues
 
     outargs.add_argument(
         '-o', '--output', metavar='out', type=argparse.FileType('wb'),
-        default=sys.stdout.buffer,
+        default=sys.stdout,
         help='Makes the program output to a file instead of standard output.')
     outargs.add_argument(
         '-C', '--colorspace', metavar='colorspace', type=parse_colorspacearg,
