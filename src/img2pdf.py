@@ -1223,7 +1223,7 @@ def parse_borderarg(string):
 def input_images(path):
     if path == '-':
         # we slurp in all data from stdin because we need to seek in it later
-        result = sys.stdin.buffer.read()
+        result = sys.stdin.read()
         if len(result) == 0:
             raise argparse.ArgumentTypeError("\"%s\" is empty" % path)
     else:
@@ -1697,7 +1697,7 @@ values set via the --border option.
     if len(args.images) == 0:
         logging.info("reading image from standard input")
         try:
-            args.images = [sys.stdin.buffer.read()]
+            args.images = [sys.stdin.read()]
         except KeyboardInterrupt:
             exit(0)
 
